@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "mode": "local[2]",
+  "train_rows": 58278,
+  "validation_rows": 21791,
+  "core_features": 44,
+  "spark_area_under_pr": 0.7583908947948345,
+  "spark_area_under_roc": 0.9571289782244558,
+  "warning": "case-control development sample; not calibrated or comparable to full-cohort sklearn AP"
+}

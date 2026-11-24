@@ -1,0 +1,2 @@
+split,model,threshold,tn,fp,fn_quarters,tp_quarters,precision,recall_quarters,f1,false_alerts_per_1000_negative_quarters,failed_banks,failed_banks_alerted_within_4q,failed_bank_recall
+TEST,HGB_CORE,0.019781976086460606,265068,1205,69,185,0.13309352517985612,0.7283464566929134,0.22506082725060828,4.525430667022191,78,68,0.8717948717948718

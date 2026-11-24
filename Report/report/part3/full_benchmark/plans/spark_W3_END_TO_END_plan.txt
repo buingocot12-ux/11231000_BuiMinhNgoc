@@ -1,0 +1,38 @@
+AdaptiveSparkPlan isFinalPlan=true
++- == Final Plan ==
+   ResultQueryStage 3
+   +- *(5) HashAggregate(keys=[REPDTE#1361], functions=[count(1), sum(ASSET#1363), sum(QA_NEGATIVE_BALANCE_COUNT#1421), sum(CASE WHEN (GAP_QUARTERS#1429 > 0) THEN 1 ELSE 0 END)], output=[REPDTE#1361, BANK_COUNT#1430L, ASSET_TOTAL#1431, NEG_BALANCE_FLAGS#1432L, REPORTING_GAP_BANKS#1433L])
+      +- AQEShuffleRead coalesced
+         +- ShuffleQueryStage 2
+            +- Exchange hashpartitioning(REPDTE#1361, 8), ENSURE_REQUIREMENTS, [plan_id=608]
+               +- *(4) HashAggregate(keys=[REPDTE#1361], functions=[partial_count(1), partial_sum(ASSET#1363), partial_sum(QA_NEGATIVE_BALANCE_COUNT#1421), partial_sum(CASE WHEN (GAP_QUARTERS#1429 > 0) THEN 1 ELSE 0 END)], output=[REPDTE#1361, count#1484L, sum#1485, sum#1486L, sum#1487L])
+                  +- *(4) Project [REPDTE#1361, ASSET#1363, QA_NEGATIVE_BALANCE_COUNT#1421, CASE WHEN isnull(PREV_Q_ORD#1428) THEN null ELSE greatest(((Q_ORD#1427 - PREV_Q_ORD#1428) - 1), 0) END AS GAP_QUARTERS#1429]
+                     +- Window [lag(Q_ORD#1427, -1, null) windowspecdefinition(CERT#1360L, REPDTE#1361 ASC NULLS FIRST, specifiedwindowframe(RowFrame, -1, -1)) AS PREV_Q_ORD#1428], [CERT#1360L], [REPDTE#1361 ASC NULLS FIRST]
+                        +- *(3) Sort [CERT#1360L ASC NULLS FIRST, REPDTE#1361 ASC NULLS FIRST], false, 0
+                           +- AQEShuffleRead coalesced
+                              +- ShuffleQueryStage 1
+                                 +- Exchange hashpartitioning(CERT#1360L, 8), ENSURE_REQUIREMENTS, [plan_id=545]
+                                    +- *(2) Project [REPDTE#1361, CERT#1360L, ASSET#1363, QA_NEGATIVE_BALANCE_COUNT#1421, (((CAL_YEAR#1425 * 4) + CAL_QUARTER#1426) - 1) AS Q_ORD#1427]
+                                       +- *(2) BroadcastHashJoin [REPDTE#1361], [REPDTE#1424], LeftOuter, BuildRight, false
+                                          :- *(2) Project [CERT#1360L, REPDTE#1361, ASSET#1363, ((((((((((((CASE WHEN (ASSET#1363 < 0.0) THEN 1 ELSE 0 END + CASE WHEN (DEP#1364 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPDOM#1365 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (COREDEP#1366 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPINS#1367 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPUNINS#1368 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (CHBAL#1372 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (SC#1373 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (LNLSGR#1378 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (LNLSNET#1379 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (P3ASSET#1389 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (P9ASSET#1390 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (NAASSET#1391 < 0.0) THEN 1 ELSE 0 END) AS QA_NEGATIVE_BALANCE_COUNT#1421]
+                                          :  +- *(2) ColumnarToRow
+                                          :     +- FileScan parquet [CERT#1360L,REPDTE#1361,ASSET#1363,DEP#1364,DEPDOM#1365,COREDEP#1366,DEPINS#1367,DEPUNINS#1368,CHBAL#1372,SC#1373,LNLSGR#1378,LNLSNET#1379,P3ASSET#1389,P9ASSET#1390,NAASSET#1391] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(43 paths)[file:/content/fdic_part3_stage2/local_parquet/YEAR=1984/data.parquet,..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<CERT:bigint,REPDTE:string,ASSET:double,DEP:double,DEPDOM:double,COREDEP:double,DEPINS:doub...
+                                          +- BroadcastQueryStage 0
+                                             +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=474]
+                                                +- *(1) Filter isnotnull(REPDTE#1424)
+                                                   +- *(1) Scan ExistingRDD[REPDTE#1424,CAL_YEAR#1425,CAL_QUARTER#1426]
++- == Initial Plan ==
+   HashAggregate(keys=[REPDTE#1361], functions=[count(1), sum(ASSET#1363), sum(QA_NEGATIVE_BALANCE_COUNT#1421), sum(CASE WHEN (GAP_QUARTERS#1429 > 0) THEN 1 ELSE 0 END)], output=[REPDTE#1361, BANK_COUNT#1430L, ASSET_TOTAL#1431, NEG_BALANCE_FLAGS#1432L, REPORTING_GAP_BANKS#1433L])
+   +- Exchange hashpartitioning(REPDTE#1361, 8), ENSURE_REQUIREMENTS, [plan_id=447]
+      +- HashAggregate(keys=[REPDTE#1361], functions=[partial_count(1), partial_sum(ASSET#1363), partial_sum(QA_NEGATIVE_BALANCE_COUNT#1421), partial_sum(CASE WHEN (GAP_QUARTERS#1429 > 0) THEN 1 ELSE 0 END)], output=[REPDTE#1361, count#1484L, sum#1485, sum#1486L, sum#1487L])
+         +- Project [REPDTE#1361, ASSET#1363, QA_NEGATIVE_BALANCE_COUNT#1421, CASE WHEN isnull(PREV_Q_ORD#1428) THEN null ELSE greatest(((Q_ORD#1427 - PREV_Q_ORD#1428) - 1), 0) END AS GAP_QUARTERS#1429]
+            +- Window [lag(Q_ORD#1427, -1, null) windowspecdefinition(CERT#1360L, REPDTE#1361 ASC NULLS FIRST, specifiedwindowframe(RowFrame, -1, -1)) AS PREV_Q_ORD#1428], [CERT#1360L], [REPDTE#1361 ASC NULLS FIRST]
+               +- Sort [CERT#1360L ASC NULLS FIRST, REPDTE#1361 ASC NULLS FIRST], false, 0
+                  +- Exchange hashpartitioning(CERT#1360L, 8), ENSURE_REQUIREMENTS, [plan_id=441]
+                     +- Project [REPDTE#1361, CERT#1360L, ASSET#1363, QA_NEGATIVE_BALANCE_COUNT#1421, (((CAL_YEAR#1425 * 4) + CAL_QUARTER#1426) - 1) AS Q_ORD#1427]
+                        +- BroadcastHashJoin [REPDTE#1361], [REPDTE#1424], LeftOuter, BuildRight, false
+                           :- Project [CERT#1360L, REPDTE#1361, ASSET#1363, ((((((((((((CASE WHEN (ASSET#1363 < 0.0) THEN 1 ELSE 0 END + CASE WHEN (DEP#1364 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPDOM#1365 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (COREDEP#1366 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPINS#1367 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (DEPUNINS#1368 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (CHBAL#1372 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (SC#1373 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (LNLSGR#1378 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (LNLSNET#1379 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (P3ASSET#1389 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (P9ASSET#1390 < 0.0) THEN 1 ELSE 0 END) + CASE WHEN (NAASSET#1391 < 0.0) THEN 1 ELSE 0 END) AS QA_NEGATIVE_BALANCE_COUNT#1421]
+                           :  +- FileScan parquet [CERT#1360L,REPDTE#1361,ASSET#1363,DEP#1364,DEPDOM#1365,COREDEP#1366,DEPINS#1367,DEPUNINS#1368,CHBAL#1372,SC#1373,LNLSGR#1378,LNLSNET#1379,P3ASSET#1389,P9ASSET#1390,NAASSET#1391] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(43 paths)[file:/content/fdic_part3_stage2/local_parquet/YEAR=1984/data.parquet,..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<CERT:bigint,REPDTE:string,ASSET:double,DEP:double,DEPDOM:double,COREDEP:double,DEPINS:doub...
+                           +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=437]
+                              +- Filter isnotnull(REPDTE#1424)
+                                 +- Scan ExistingRDD[REPDTE#1424,CAL_YEAR#1425,CAL_QUARTER#1426]

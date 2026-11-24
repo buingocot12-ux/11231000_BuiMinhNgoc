@@ -1,0 +1,72 @@
+{
+  "pipeline": "PART2_CLEAN_PANEL_AND_RETROSPECTIVE_EXIT_REFERENCE_V1",
+  "created_utc": "2026-11-13T09:13:02.085541+00:00",
+  "source_financials": "data_storage/financials/year_partitioned_full",
+  "clean_panel": "data_processed/clean_panel_v1",
+  "retrospective_events": "data_processed/part2_event_reference_v1",
+  "diagnostic_input": "outputs/part2/raw_qa",
+  "raw_input_fields_preserved": 47,
+  "rows_before": 1682616,
+  "rows_after": 1682616,
+  "year_partitions": 43,
+  "balance_fields_protected": [
+    "ASSET",
+    "DEP",
+    "DEPDOM",
+    "COREDEP",
+    "DEPINS",
+    "DEPUNINS",
+    "CHBAL",
+    "SC",
+    "LNLSGR",
+    "LNLSNET",
+    "P3ASSET",
+    "P9ASSET",
+    "NAASSET"
+  ],
+  "mask_counts_by_field": {
+    "ASSET": 0,
+    "DEP": 0,
+    "DEPDOM": 0,
+    "COREDEP": 18,
+    "DEPINS": 2,
+    "DEPUNINS": 382,
+    "CHBAL": 2,
+    "SC": 96,
+    "LNLSGR": 32,
+    "LNLSNET": 50,
+    "P3ASSET": 0,
+    "P9ASSET": 0,
+    "NAASSET": 2
+  },
+  "ratio_review_flag_instances": 1163,
+  "zero_denominator_flag_instances": 31175,
+  "failure_events_by_alignment": {
+    "ALIGNED_FAILURE_EVENT": 2768,
+    "POST_FAILURE_FINANCIALS_PRESENT_REVIEW": 406,
+    "MULTIPLE_FAILURE_EVENTS_SAME_CERT_REVIEW": 77,
+    "NO_FINANCIAL_HISTORY_FOR_CERT": 22
+  },
+  "banks_by_retrospective_outcome": {
+    "OTHER_EXIT_DATE_SUPPORTED": 16274,
+    "RIGHT_CENSORED_AT_END": 4307,
+    "FAILURE_CONFIRMED_ALIGNED": 2768,
+    "FAILURE_EVENT_LINK_REVIEW": 448,
+    "EXIT_UNVERIFIED": 267
+  },
+  "failure_review_events": 505,
+  "bank_exit_review_cases": 715,
+  "banks_with_original_reporting_gaps": 32,
+  "outcome_policy": "Retrospective outcomes separate from predictor panel; ambiguous CERT/timing links unresolved",
+  "other_exit_policy": "Institutions snapshot end date provides date support only, not a verified cause (not necessarily merger)",
+  "history_endpoint_note": "History not acquired in Part 1; finer merger/charter classifications are not warranted",
+  "publication_timing_note": "REPDTE is a quarter-end, not a public release time; Part 4 must impose conservative feature lag",
+  "no_source_data_modified": true,
+  "software": {
+    "python": "3.13.18",
+    "polars": "1.35.2",
+    "pandas": "2.2.3",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39"
+  },
+  "acceptance_passed": true
+}

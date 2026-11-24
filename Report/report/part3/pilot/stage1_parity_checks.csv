@@ -1,0 +1,76 @@
+comparison,field,passed,mismatched_rows
+Polars vs pandas | T1 projection/filter,__KEY_AND_ROWS__,True,0
+Polars vs pandas | T1 projection/filter,ASSET,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,__KEY_AND_ROWS__,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,ASSET_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,DEP_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,DEPDOM_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,COREDEP_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,DEPINS_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,DEPUNINS_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,CHBAL_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,SC_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,LNLSGR_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,LNLSNET_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,P3ASSET_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,P9ASSET_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,NAASSET_QA_VALID,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,QA_NEGATIVE_BALANCE_COUNT,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,QA_RATIO_REVIEW_COUNT,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,QA_ZERO_DENOM_COUNT,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,CAL_YEAR,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,CAL_QUARTER,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,Q_ORD,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,PREV_Q_ORD,True,0
+Polars vs pandas | T2–T4 cleaning/join/window,GAP_QUARTERS,True,0
+Polars vs pandas | T5 groupby,__KEY_AND_ROWS__,True,0
+Polars vs pandas | T5 groupby,BANK_COUNT,True,0
+Polars vs pandas | T5 groupby,ASSET_TOTAL,True,0
+Polars vs pandas | T5 groupby,NEG_BALANCE_FLAGS,True,0
+Polars vs pandas | T5 groupby,REPORTING_GAP_BANKS,True,0
+Polars vs 03B clean panel | QA parity,__KEY_AND_ROWS__,True,0
+Polars vs 03B clean panel | QA parity,ASSET_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,DEP_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,DEPDOM_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,COREDEP_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,DEPINS_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,DEPUNINS_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,CHBAL_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,SC_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,LNLSGR_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,LNLSNET_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,P3ASSET_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,P9ASSET_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,NAASSET_QA_VALID,True,0
+Polars vs 03B clean panel | QA parity,QA_NEGATIVE_BALANCE_COUNT,True,0
+Polars vs 03B clean panel | QA parity,QA_RATIO_REVIEW_COUNT,True,0
+Polars vs 03B clean panel | QA parity,QA_ZERO_DENOM_COUNT,True,0
+Polars vs Spark | T1 projection/filter,__KEY_AND_ROWS__,True,0
+Polars vs Spark | T1 projection/filter,ASSET,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,__KEY_AND_ROWS__,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,ASSET_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,DEP_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,DEPDOM_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,COREDEP_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,DEPINS_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,DEPUNINS_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,CHBAL_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,SC_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,LNLSGR_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,LNLSNET_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,P3ASSET_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,P9ASSET_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,NAASSET_QA_VALID,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,QA_NEGATIVE_BALANCE_COUNT,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,QA_RATIO_REVIEW_COUNT,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,QA_ZERO_DENOM_COUNT,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,CAL_YEAR,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,CAL_QUARTER,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,Q_ORD,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,PREV_Q_ORD,True,0
+Polars vs Spark | T2–T4 cleaning/join/window,GAP_QUARTERS,True,0
+Polars vs Spark | T5 groupby,__KEY_AND_ROWS__,True,0
+Polars vs Spark | T5 groupby,BANK_COUNT,True,0
+Polars vs Spark | T5 groupby,ASSET_TOTAL,True,0
+Polars vs Spark | T5 groupby,NEG_BALANCE_FLAGS,True,0
+Polars vs Spark | T5 groupby,REPORTING_GAP_BANKS,True,0

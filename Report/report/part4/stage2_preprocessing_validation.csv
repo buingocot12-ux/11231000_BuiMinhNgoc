@@ -1,0 +1,4 @@
+split,rows,features_before,features_after,missing_after,infinite_after,distinct_positive_banks,status,output_file
+TRAIN,1084227,26,48,0,0,2191,PASS,/content/drive/MyDrive/FDIC_Bank_Failure_Project/data_processed/feature_panel_v1/preprocessed_v1/train_model_ready.parquet
+VALIDATION,158131,26,48,0,0,465,PASS,/content/drive/MyDrive/FDIC_Bank_Failure_Project/data_processed/feature_panel_v1/preprocessed_v1/validation_model_ready.parquet
+TEST,266527,26,48,0,0,78,PASS,/content/drive/MyDrive/FDIC_Bank_Failure_Project/data_processed/feature_panel_v1/preprocessed_v1/test_model_ready.parquet

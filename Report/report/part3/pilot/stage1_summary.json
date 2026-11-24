@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-11-14T08:50:42.028732+00:00",
+  "stage": "Part3_Stage1_Correctness_Pilot",
+  "pilot_rows": 41844,
+  "pilot_years": [
+    2019,
+    2020
+  ],
+  "pilot_unique_banks": 5449,
+  "pilot_reporting_gap_rows": 0,
+  "window_scope_note": "Reporting gaps are calculated within the 2019–2020 pilot, not across all earlier bank history.",
+  "qa_negative_balance_flag_instances": 1,
+  "parity_fields_checked": 75,
+  "parity_failed_fields": 0,
+  "spark_ran": true,
+  "spark_parity_passed": true,
+  "all_stage1_acceptance_pass": true,
+  "scope_limitations": "Pilot correctness only. No full benchmark, peak-memory comparison, cost or cluster claim.",
+  "part2_reference_path": "data_processed/clean_panel_v1",
+  "no_part1_part2_data_modified": true,
+  "environment": {
+    "python": "3.13.18",
+    "polars": "1.35.2",
+    "pandas": "2.2.3",
+    "pyarrow": "23.0.1",
+    "pyspark": "4.0.5",
+    "cpu_logical": 2,
+    "memory_gib": 12.671,
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "pilot_years": [
+      2019,
+      2020
+    ],
+    "pilot_rows": 41844,
+    "execution_mode": "Colab/local single machine, not a multi-node cluster",
+    "input_storage": "Copied Parquet from Drive to Colab local filesystem"
+  }
+}

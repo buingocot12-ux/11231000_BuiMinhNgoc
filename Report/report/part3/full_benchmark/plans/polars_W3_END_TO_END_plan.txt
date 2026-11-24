@@ -1,0 +1,22 @@
+SORT BY [col("REPDTE")]
+  AGGREGATE[maintain_order: false]
+    [len().alias("BANK_COUNT"), col("ASSET").sum().alias("ASSET_TOTAL"), col("QA_NEGATIVE_BALANCE_COUNT").sum().alias("NEG_BALANCE_FLAGS"), [(col("GAP_QUARTERS")) > (0)].fill_null([false]).strict_cast(Int64).sum().alias("REPORTING_GAP_BANKS")] BY [col("REPDTE")]
+    FROM
+     WITH_COLUMNS:
+     [when(col("PREV_Q_ORD").is_null()).then(null.cast(Int32)).otherwise([([(col("Q_ORD")) - (col("PREV_Q_ORD"))]) - (1)].clip_min([dyn int: 0])).alias("GAP_QUARTERS")] 
+       WITH_COLUMNS:
+       [col("Q_ORD").shift([dyn int: 1]).over([col("CERT")]).alias("PREV_Q_ORD")] 
+        SORT BY [col("CERT"), col("REPDTE")]
+           WITH_COLUMNS:
+           [[([([(col("CAL_YEAR")) * (4)]) + (col("CAL_QUARTER"))]) - (1)].strict_cast(Int32).alias("Q_ORD")] 
+            simple π 6/6 ["ASSET", ... 5 other columns]
+              LEFT JOIN:
+              LEFT PLAN ON: [col("REPDTE")]
+                 WITH_COLUMNS:
+                 [[(col("ASSET")) < (0.0)].fill_null([false]).strict_cast(Int32).sum_horizontal([[(col("DEP")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("DEPDOM")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("COREDEP")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("DEPINS")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("DEPUNINS")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("CHBAL")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("SC")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("LNLSGR")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("LNLSNET")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("P3ASSET")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("P9ASSET")) < (0.0)].fill_null([false]).strict_cast(Int32), [(col("NAASSET")) < (0.0)].fill_null([false]).strict_cast(Int32)]).alias("QA_NEGATIVE_BALANCE_COUNT")] 
+                  Parquet SCAN [/content/fdic_part3_stage2/local_parquet/YEAR=1984/data.parquet, ... 42 other sources]
+                  PROJECT 15/47 COLUMNS
+                  ESTIMATED ROWS: 3085680
+              RIGHT PLAN ON: [col("REPDTE")]
+                DF ["REPDTE", "CAL_YEAR", "CAL_QUARTER"]; PROJECT["REPDTE", "CAL_YEAR", "CAL_QUARTER"] 3/3 COLUMNS
+              END LEFT JOIN

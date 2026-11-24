@@ -1,0 +1,25 @@
+{
+  "run_mode": "FULL",
+  "history_effective_date_scope": "1984-01-01 to 2026-06-30",
+  "history_events_collected": 506824,
+  "history_record_ids_unique": 506824,
+  "verified_year_slices": 43,
+  "baseline_banks": 24064,
+  "new_history_verified_nonassisted_mergers": 14346,
+  "revised_exit_class_counts": {
+    "MERGER_VERIFIED_HISTORY": 14346,
+    "RIGHT_CENSORED_AT_END": 4307,
+    "FAILURE_CONFIRMED_ALIGNED": 2768,
+    "OTHER_EXIT_DATE_SUPPORTED": 2038,
+    "FAILURE_EVENT_LINK_REVIEW": 448,
+    "EXIT_UNVERIFIED": 136,
+    "OTHER_EXIT_HISTORY_REVIEW": 21
+  },
+  "history_conflict_review_rows": 777,
+  "acceptance_all_passed": true,
+  "classification_note": "Only unambiguous OUT_CERT -> ACQ_CERT non-assisted merger close to last report is automatically confirmed. No absence of History event treated as evidence of no exit.",
+  "scope_limitation": "Only History rows with EFFDATE 1984-01-01..2026-06-30; structural event API data may have coverage limits; branch-level changes excluded as exit proof.",
+  "point_in_time_note": "History evidence is retrospective outcome metadata only, not features.",
+  "source_documentation": "https://api.fdic.gov/banks/docs/",
+  "created_utc": "2026-11-13T10:22:41.011038+00:00"
+}

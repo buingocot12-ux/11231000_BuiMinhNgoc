@@ -1,0 +1,29 @@
+﻿issue_code,severity,affected_count,handling_to_decide,evidence
+NEGATIVE_NETINC,REVIEW,172724,Assess accounting definition; negative EQ/NETINC may signal distress,audit_numeric_flags_by_year.csv
+ZERO_LNLSGR,REVIEW,19034,Zero may invalidate a ratio denominator; preserve underlying observation,audit_numeric_flags_by_year.csv
+AMBIGUOUS_NONFAILURE_EXITS,REVIEW,16541,Do not label all disappearances as mergers; History/event evidence needed,audit_bank_exit_candidates.csv
+NEGATIVE_EQ,REVIEW,15659,Assess accounting definition; negative EQ/NETINC may signal distress,audit_numeric_flags_by_year.csv
+ZERO_DEP,REVIEW,12141,Zero may invalidate a ratio denominator; preserve underlying observation,audit_numeric_flags_by_year.csv
+MISSING_EQ,REVIEW,4148,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+ZERO_NETINC,REVIEW,1907,Zero may invalidate a ratio denominator; preserve underlying observation,audit_numeric_flags_by_year.csv
+BANK_REPORTING_GAPS,REVIEW,32,Investigate missing interim reports vs true institutional changes,audit_bank_reporting_gaps.csv
+NEGATIVE_LNLSGR,REVIEW,32,Assess accounting definition; negative EQ/NETINC may signal distress,audit_numeric_flags_by_year.csv
+ZERO_EQ,REVIEW,24,Zero may invalidate a ratio denominator; preserve underlying observation,audit_numeric_flags_by_year.csv
+UNMATCHED_STUDY_WINDOW_FAILURES,REVIEW,22,Compare date coverage and CERT changes; do not force unmatched joins,audit_failure_event_links.csv
+MISSING_DEP,REVIEW,1,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+MISSING_LNLSGR,REVIEW,1,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+POINT_IN_TIME_AVAILABILITY,LIMITATION,0,REPDTE is not release timestamp; use conservative lag and exclude modern snapshot states from features,Notebook 02 schema / point-in-time discussion
+AUX_RECORD_ID_PROBLEM,PASS,0,Review current manifest snapshot; never infer missing ID from CERT,audit_auxiliary_quality.csv
+BAD_OR_MISPLACED_KEYS,PASS,0,"Identify malformed rows, quarantine if needed; do not guess identifiers",audit_key_integrity.csv
+BLANK_NONNUMERIC_VALUES,PASS,0,Review blank categorical/date values by field; do not treat all blanks as failures,audit_non_numeric_flags_by_year.csv
+DUPLICATE_BANK_QUARTER,PASS,0,Inspect exact duplicates vs conflicting records; choose deterministic rule,audit_key_integrity.csv
+MISSING_ASSET,PASS,0,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+MISSING_RBC1AAJ,PASS,0,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+MISSING_ROA,PASS,0,"Document time pattern; training-only imputation later, if justified",audit_missingness_by_year.csv
+MISSING_YEAR_PARTITION,PASS,0,Recover only missing verified year partitions from Part 1,audit_inventory.csv
+NEGATIVE_ASSET,PASS,0,Assess accounting definition; negative EQ/NETINC may signal distress,audit_numeric_flags_by_year.csv
+NEGATIVE_DEP,PASS,0,Assess accounting definition; negative EQ/NETINC may signal distress,audit_numeric_flags_by_year.csv
+NONFINITE_NUMERIC_VALUES,PASS,0,Inspect affected values by field and year; do not automatically replace them,audit_numeric_flags_by_year.csv
+QUARTER_COUNT_MISMATCH,PASS,0,Investigate source/partition mapping; do not auto-fill quarters,audit_quarter_coverage.csv
+SCHEMA_DRIFT,PASS,0,Use compatible types; explain nonavailability instead of zero fill,audit_schema_by_year.csv
+ZERO_ASSET,PASS,0,Zero may invalidate a ratio denominator; preserve underlying observation,audit_numeric_flags_by_year.csv

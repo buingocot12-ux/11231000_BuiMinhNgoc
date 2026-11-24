@@ -1,0 +1,3 @@
+﻿layout,partition_column,predicate,matched_rows,value_parity,size_mib,filter_ms_median,repeats,run_mode,benchmark_scope,total_verified_rows,storage
+MONOLITHIC,YEAR,YEAR == 1984,71760,True,221.3499,115.909,5,FULL,ALL_VERIFIED,1682616,Colab local /content
+HIVE_PARTITIONED,YEAR,YEAR == 1984,71760,True,281.5997,8.75,5,FULL,ALL_VERIFIED,1682616,Colab local /content

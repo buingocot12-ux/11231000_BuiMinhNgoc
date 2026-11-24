@@ -1,0 +1,6 @@
+﻿codec,size_mib,write_ms_median,read_ms_median,rows,repeats,run_mode,benchmark_scope,total_verified_rows,storage
+NONE,275.0832,5680.82,524.912,1682616,5,FULL,ALL_VERIFIED,1682616,Colab local /content
+NONE,275.0832,4515.279,499.068,1682616,5,FULL,ALL_VERIFIED,1682616,Colab local /content
+SNAPPY,221.3441,4763.362,855.715,1682616,5,FULL,ALL_VERIFIED,1682616,Colab local /content
+GZIP,184.068,189088.065,1586.753,1682616,5,FULL,ALL_VERIFIED,1682616,Colab local /content
+ZSTD,184.6192,5509.06,886.204,1682616,5,FULL,ALL_VERIFIED,1682616,Colab local /content

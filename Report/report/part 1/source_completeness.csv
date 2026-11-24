@@ -1,0 +1,4 @@
+﻿source,scope,api_total_at_download,downloaded_rows,target_quarters,verified_quarters,status,api_id_check,unique_api_ids,duplicate_api_ids,missing_api_ids,page_boundary_sort_ties,pagination_warning
+financials,FULL,1682616,1682616,170.0,170.0,VERIFIED,,,,,,
+failures,entire endpoint,4117,4117,,,VERIFIED,PASS,4117.0,0.0,0.0,0.0,
+institutions,entire endpoint,27835,27835,,,VERIFIED,PASS,27835.0,0.0,0.0,0.0,

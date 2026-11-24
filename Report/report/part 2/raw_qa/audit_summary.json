@@ -1,0 +1,85 @@
+{
+  "audit_type": "RAW_DATA_QUALITY_DIAGNOSIS_ONLY_NO_CLEANING",
+  "generated_at_utc": "2026-11-13T08:25:11.137580+00:00",
+  "project": "/content/drive/MyDrive/FDIC_Bank_Failure_Project",
+  "input_curated_financials": "data_storage/financials/year_partitioned_full",
+  "input_manifest": "data_raw/fdic/manifest_colab_v1.json",
+  "part1_manifest_last_updated_utc": "2026-11-10T09:17:21+00:00",
+  "financial_year_partitions": 43,
+  "financial_rows": 1682616,
+  "financial_fields_observed": 47,
+  "financial_numeric_fields_profiled": 44,
+  "financial_non_numeric_fields_profiled": 2,
+  "numeric_identifier_fields": [
+    "CERT"
+  ],
+  "financial_manifest_expected_rows": 1682616,
+  "expected_quarters": 170,
+  "quarters_with_record_mismatch": 0,
+  "missing_years": [],
+  "unique_financial_CERTs": 24064,
+  "duplicate_bank_quarter_rows": 0,
+  "bad_key_or_year_rows": 0,
+  "banks_with_observed_quarter_gaps": 32,
+  "schema_drift_years": 0,
+  "failure_link_summary": {
+    "failure_records_all_years": 4117,
+    "failures_missing_CERT": 488,
+    "failures_invalid_or_missing_FAILDATE": 0,
+    "failure_records_in_1984_2026Q2": 3273,
+    "failure_records_in_window_with_panel_CERT": 3251,
+    "failure_records_in_window_without_panel_CERT": 22,
+    "records_with_failure_date_before_panel": 842,
+    "records_with_failure_date_after_panel": 2
+  },
+  "exit_diagnostic_counts": {
+    "NONFAILURE_EXIT_OR_REPORTING_GAP_UNVERIFIED": 16541,
+    "RIGHT_CENSORED_AT_2026Q2": 4307,
+    "FAILURE_EVENT_NEAR_LAST_REPORT": 2896,
+    "FAILURE_EVENT_TIMING_REVIEW": 320
+  },
+  "auxiliary_diagnostics": [
+    {
+      "source": "failures",
+      "pages": 1,
+      "rows": 4117,
+      "expected_api_total": 4117,
+      "missing_CERT": 488,
+      "missing_API_RECORD_ID": 0,
+      "duplicate_API_RECORD_ID": 0,
+      "unique_CERT_excluding_null": 3585
+    },
+    {
+      "source": "institutions",
+      "pages": 6,
+      "rows": 27835,
+      "expected_api_total": 27835,
+      "missing_CERT": 0,
+      "missing_API_RECORD_ID": 0,
+      "duplicate_API_RECORD_ID": 0,
+      "unique_CERT_excluding_null": 27835
+    }
+  ],
+  "issue_severity_counts": {
+    "REVIEW": 13,
+    "LIMITATION": 1,
+    "PASS": 14
+  },
+  "source_statuses": {
+    "failures": "VERIFIED",
+    "institutions": "VERIFIED"
+  },
+  "methodology_cautions": [
+    "No source data were modified",
+    "Institution ACTIVE/ENDEFYMD refer to current snapshot, not point-in-time feature states",
+    "REPDTE is reporting quarter end, not necessarily the public release timestamp",
+    "Unmatched failure events and reporting gaps require event-identity review",
+    "All flags are diagnostic, no winsorization or imputation performed"
+  ],
+  "software": {
+    "python": "3.13.18",
+    "pyarrow": "23.0.1",
+    "pandas": "2.2.3",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39"
+  }
+}

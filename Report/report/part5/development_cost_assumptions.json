@@ -1,0 +1,14 @@
+{
+  "development_cost_source": "FDIC_DEVELOPMENT_COST_MEDIAN",
+  "development_failures_with_cost": 2588,
+  "median_positive_fdic_cost_in_source_units": 11733.937,
+  "false_negative_cost_proxy": 11733.937,
+  "false_alarm_cost_fraction_assumed": 0.01,
+  "false_alarm_cost_scenario": 117.33937,
+  "cost_definition": "C_FN: once per failed bank; C_FP: per negative bank-quarter alert",
+  "important_limitations": [
+    "FDIC COST is historical DIF loss; not proven avoidable by warning",
+    "False alert supervision cost is unavailable; ratio is a declared scenario",
+    "Estimated current-vintage FDIC COST may be revised retrospectively; never a predictor"
+  ]
+}

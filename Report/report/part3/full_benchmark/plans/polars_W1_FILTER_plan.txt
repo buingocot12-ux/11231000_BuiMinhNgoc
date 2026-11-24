@@ -1,0 +1,6 @@
+SELECT [len().alias("ROWS"), col("ASSET").sum().alias("ASSET_TOTAL")]
+  simple π 1/1 ["ASSET"]
+    Parquet SCAN [/content/fdic_part3_stage2/local_parquet/YEAR=1984/data.parquet, ... 42 other sources]
+    PROJECT 2/47 COLUMNS
+    SELECTION: col("REPDTE").is_between(["20260101", "20261231"])
+    ESTIMATED ROWS: 3085680

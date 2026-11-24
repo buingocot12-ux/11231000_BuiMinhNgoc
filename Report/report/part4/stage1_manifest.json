@@ -1,0 +1,104 @@
+{
+  "project": "FDIC_BANK_FAILURE_PART4_V1",
+  "created_utc": "2026-11-19T02:49:52.030020+00:00",
+  "input_clean_panel": "data_processed/clean_panel_v1",
+  "input_history_exit": "data_processed/part2_history_exit_reference_v1/bank_exit_outcomes_with_history.parquet",
+  "input_failure_alignment": "data_processed/part2_event_reference_v1/failure_event_alignment.parquet",
+  "rows_total": 1682616,
+  "feature_lag_quarters": 1,
+  "model_end": "2025Q2",
+  "label_horizon_quarters": 4,
+  "split_bounds": {
+    "TRAIN": [
+      "1984Q1",
+      "2005Q4"
+    ],
+    "VALIDATION": [
+      "2007Q1",
+      "2011Q4"
+    ],
+    "TEST": [
+      "2013Q1",
+      "2025Q2"
+    ]
+  },
+  "summary": [
+    {
+      "split": "TRAIN",
+      "rows": 1084227,
+      "positive_bank_quarters": 8278,
+      "negative_bank_quarters": 1075949,
+      "distinct_failed_banks": 2191,
+      "distinct_banks": 22203,
+      "positive_share": 0.007634932537190091,
+      "start_q": "1984Q1",
+      "end_q": "2005Q4"
+    },
+    {
+      "split": "VALIDATION",
+      "rows": 158131,
+      "positive_bank_quarters": 1791,
+      "negative_bank_quarters": 156340,
+      "distinct_failed_banks": 465,
+      "distinct_banks": 8690,
+      "positive_share": 0.011326052450183708,
+      "start_q": "2007Q1",
+      "end_q": "2011Q4"
+    },
+    {
+      "split": "TEST",
+      "rows": 266527,
+      "positive_bank_quarters": 254,
+      "negative_bank_quarters": 266273,
+      "distinct_failed_banks": 78,
+      "distinct_banks": 6911,
+      "positive_share": 0.0009529991332960638,
+      "start_q": "2013Q1",
+      "end_q": "2025Q2"
+    }
+  ],
+  "feature_candidates": [
+    "F_EQUITY_ASSET",
+    "F_PCA_LEVERAGE_PCT",
+    "F_TIER1_RBC_PCT",
+    "F_NPL_LOANS",
+    "F_NONACCRUAL_ASSET",
+    "F_PASTDUE90_ASSET",
+    "F_NET_CHARGEOFFS_LOANS",
+    "F_TEXAS_PROXY",
+    "F_ROA_PCT",
+    "F_ROE_PCT",
+    "F_NIM_PCT",
+    "F_CASH_ASSET",
+    "F_SECURITIES_ASSET",
+    "F_DEPOSITS_ASSET",
+    "F_COREDEP_SHARE",
+    "F_UNINSURED_SHARE",
+    "F_LOANS_DEPOSITS",
+    "F_RE_LOAN_SHARE",
+    "F_CRE_LOAN_SHARE",
+    "F_CONSTRUCTION_LOAN_SHARE",
+    "F_LOG_ASSET",
+    "F_ASSET_GROWTH_QOQ",
+    "F_DEP_GROWTH_QOQ",
+    "F_ROA_CHANGE_4Q",
+    "F_NPL_CHANGE_4Q",
+    "F_ROA_ROLL4"
+  ],
+  "gate_results": {
+    "INPUT_43_YEAR_PARTITIONS": true,
+    "ALL_FINANCIAL_ROWS_PRESERVED": true,
+    "UNIQUE_BANK_QUARTER_KEYS": true,
+    "ONLY_PRIOR_QUARTER_FEATURES": true,
+    "NO_OUTCOME_FIELDS_IN_PREDICTORS": true,
+    "FOUR_QUARTER_EMBARGO_TRAIN_VAL": true,
+    "FOUR_QUARTER_EMBARGO_DEV_TEST": true,
+    "NO_IMMATURE_LABELS": "True",
+    "UNKNOWN_MERGERS_NOT_NEGATIVE": true,
+    "TEST_HAS_50_DISTINCT_FAILURES": true,
+    "TRAIN_VALIDATION_TEST_NONEMPTY": true
+  },
+  "important_limitation": "report vintage/revisions unavailable; q-1 lag is an assumption, not a proven filing publication date",
+  "label_policy": "aligned FDIC failures only; unknown/censored exits and ambiguous multiple CERT events not silently labeled negative",
+  "unit_note": "financial amounts reported in FDIC source scale; ratios except *_PCT expressed as fractions"
+}

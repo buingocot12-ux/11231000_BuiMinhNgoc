@@ -1,0 +1,11 @@
+﻿issue,treatment,reason,original_changed
+Missing values (including structurally unavailable fields),Preserve original null; no global imputation or zero fill,Avoid invented history and training/test leakage,False
+"Negative assets, deposits, securities, loans and other listed balances",Preserve raw; add *_QA_VALID=null if raw<0; mark QA_NEGATIVE_BALANCE_COUNT,Conservative variable-level quarantine without discarding distressed banks,False
+"Negative NETINC, EQ, ROA, ROE, NTLNLS and other signed flows",Preserve raw; do not set to zero or drop rows,Potential distress and legitimate accounting signs,False
+Extreme financial ratios,"QA_RATIO_REVIEW_COUNT flag only, no clipping or winsorizing",Source may reflect tiny denominator or genuine distress; model-time preprocessing only,False
+Zero ratio denominators,Flag QA_ZERO_DENOM_COUNT; protect any future division using *_QA_VALID > 0,Avoid divide-by-zero without erasing the observation,False
+Discontinuous bank-quarter reports,Preserve actual observations; never forward-fill absent bank-quarter rows,Do not fabricate observations or survival history,False
+22 unmatched early-1984 failure records,Retain in unmatched event reference; no fabricated Financials matching row,Cannot join failure event without a bank report,False
+Repeated failure CERT and post-failure financial reporting,"Quarantine event association in retrospective EVENT_LINK_REVIEW, not guessed",CERT alone does not establish a single continuous institution lifetime,False
+Non-failure bank disappearance,OTHER_EXIT_DATE_SUPPORTED only if inactive snapshot plus nearby ENDEFYMD; otherwise EXIT_UNVERIFIED,Neither absence from panel nor 2026 ACTIVE proves a historical merger,False
+Historical publication lags,REPDTE retained as quarter end; no assertion of instant public availability,Part 4 must adopt/report conservative as-of information lag,False

@@ -1,0 +1,57 @@
+{
+  "run_mode": "FULL",
+  "generated_at": "2026-11-10T09:18:04+00:00",
+  "research_quarters": 170,
+  "target_quarters": 170,
+  "verified_quarters": 170,
+  "strict_all_fields_quarters": 170,
+  "source_gap_quarters": [],
+  "schema_gap_quarters": [],
+  "not_verified_quarters": [],
+  "verified_rows_current_mode": 1682616,
+  "failures_and_institutions": {
+    "failures": "VERIFIED",
+    "institutions": "VERIFIED"
+  },
+  "aux_id_audit": {
+    "failures": {
+      "api_id_check": "PASS",
+      "unique_api_ids": 4117,
+      "duplicate_api_ids": 0,
+      "missing_api_ids": 0,
+      "page_boundary_sort_ties": 0
+    },
+    "institutions": {
+      "api_id_check": "PASS",
+      "unique_api_ids": 27835,
+      "duplicate_api_ids": 0,
+      "missing_api_ids": 0,
+      "page_boundary_sort_ties": 0
+    }
+  },
+  "post_download_api_audit_enabled": true,
+  "post_download_api_audit_all_match": true,
+  "post_download_api_audit_result_counts": {
+    "MATCH": 172
+  },
+  "full_record_coverage_verified": true,
+  "strict_all_selected_fields_verified": true,
+  "benchmark": {
+    "scope": "ALL_VERIFIED",
+    "rows_available": 1682616,
+    "rows_benchmarked": 1682616,
+    "quarters_available": 170,
+    "approx_uncompressed_mib": 428.71,
+    "conservative_ram_estimate_mib": 1286.13,
+    "memory_budget_mib": 1536.0,
+    "manual_max_rows": null,
+    "random_seed": 42,
+    "sampling_method": "none"
+  },
+  "limitations": [
+    "FDIC may revise records without changing API total",
+    "Offset pagination with a non-unique sort key is not a guaranteed snapshot",
+    "Not all modern field definitions exist in early historical quarters",
+    "Colab local benchmark disk is not the laptop or Google Drive"
+  ]
+}

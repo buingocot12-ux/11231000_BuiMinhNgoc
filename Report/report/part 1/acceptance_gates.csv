@@ -1,0 +1,9 @@
+﻿gate,passed,detail
+G1_financial_quarters_record_verified,True,170/170 target quarters
+G2_failures_and_institutions_complete,True,"{'failures': 'VERIFIED', 'institutions': 'VERIFIED'}"
+G3_aux_API_record_IDs_unique_and_present,True,"{'failures': {'api_id_check': 'PASS', 'duplicate_api_ids': 0, 'missing_api_ids': 0}, 'institutions': {'api_id_check': 'PASS', 'duplicate_api_ids': 0, 'missing_api_ids': 0}}"
+G4_all_selected_fields_observed,True,Historical field gaps are reported separately from record completeness
+G5_curated_rows_match_raw,True,43 year partitions
+G6_all_three_benchmarks_measured,True,2 storage / 5 codecs / 2 layouts; scope=ALL_VERIFIED
+G7_live_API_total_post_audit,True,Live audit counts: {'MATCH': 172}
+FULL_RECORD_COVERAGE_VERIFIED,True,"FULL only; requires verified ID, acquisition records, and live audit when enabled"

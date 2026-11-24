@@ -1,0 +1,33 @@
+{
+  "executed_utc": "2026-11-20T08:41:03.292327+00:00",
+  "locked_protocol_sha256": "dda69fdec8a2d38e7c7de6bca4bedbdb87ce37403b06acbec1e28ec43c300990",
+  "selection_was_development_only": true,
+  "test_rank_metrics": {
+    "split": "TEST",
+    "model": "HGB_CORE",
+    "n": 266527,
+    "positive": 254,
+    "prevalence": 0.0009529991332960638,
+    "average_precision": 0.27491910272799847,
+    "roc_auc": 0.9435929618855741,
+    "brier": 0.0007792773554951087
+  },
+  "test_fixed_threshold_metrics": {
+    "split": "TEST",
+    "model": "HGB_CORE",
+    "threshold": 0.019781976086460606,
+    "tn": 265068,
+    "fp": 1205,
+    "fn_quarters": 69,
+    "tp_quarters": 185,
+    "precision": 0.13309352517985612,
+    "recall_quarters": 0.7283464566929134,
+    "f1": 0.22506082725060828,
+    "false_alerts_per_1000_negative_quarters": 4.525430667022191,
+    "failed_banks": 78,
+    "failed_banks_alerted_within_4q": 68,
+    "failed_bank_recall": 0.8717948717948718
+  },
+  "test_estimated_cost_source_units": 258733.31085,
+  "false_alarm_cost_is_scenario": true
+}
