@@ -10,7 +10,6 @@ An end-to-end data-engineering study of FDIC institution-level financial stateme
 
 - `notebooks/` — nine final *source-code versions* for Parts 1–5; use the executed copies from Colab for final submission where available.
 - `metadata/` — FDIC YAML field definitions; `FDIC_Data_Dictionary_Updated.xlsx` is a project-generated dictionary, not a bank-level dataset.
-- `scripts/generate_requirements.py` — creates an exact-version `requirements.txt` from an environment in which all dependencies have been installed.
 - `.gitignore` — excludes bank-level data, Parquet files, local caches and credentials.
 
 **No bank-level datasets are distributed via GitHub.** Reproduce inputs using the API and the notebooks. Do not commit `data_raw/`, `data_storage/`, `data_processed/`, or full-bank CSV/Parquet files.
