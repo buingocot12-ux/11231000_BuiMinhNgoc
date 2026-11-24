@@ -1,0 +1,57 @@
+# FDIC project: do not commit raw or processed bank-level observations.
+# The repository deliberately retains small aggregate CSV/JSON reports.
+
+# FDIC source datasets and generated model-ready data, regardless of location
+**/data_raw/
+**/data_storage/
+**/data_processed/
+**/raw_data/
+**/processed_data/
+**/clean_panel_v1/
+**/feature_panel_v1/
+**/model_ready/
+
+# Binary data and serialized models
+*.parquet
+*.parq
+*.arrow
+*.feather
+*.pkl
+*.pickle
+*.joblib
+*.sqlite
+*.db
+
+# Large downloads / archive outputs
+*.zip
+*.gz
+*.tar
+*.tar.gz
+
+# Local output caches (selected aggregate outputs are under Report/report/)
+**/outputs/
+**/output_cache/
+**/.ipynb_checkpoints/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*credentials*.json
+*token*.json
+
+# Operating-system and editor clutter
+[Dd]esktop.ini
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# IMPORTANT: Do NOT ignore *.csv, *.json, *.txt, *.yaml or *.ipynb
+# globally: these formats are needed for aggregate verification reports,
+# metadata, and source-code notebooks in this repository.
